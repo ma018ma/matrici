@@ -6,7 +6,7 @@ int main()
 {
     int rows = 10;
     int columns = 10;
-    string words[] = {"lei", "tuo", "gas", "ape", "tre", "gia"};
+    string words[] = {"lei", "tuo", "gas", "ape", "tre", "gia", "for","mio"};
     char empty = ' ';
 
     int wordsLength = sizeof(words) / sizeof(words[0]);
@@ -94,9 +94,9 @@ int main()
                 for (int i = 0; i < words[index].length(); i++)
                 {
                     matrix[x + i][y] = words[index][i];
-                     cout << "index: " << index << " i: " << i << " x: " << x << " y: " << y << endl;
-                     cout << "matrix[" << x << "][" << y + i << "] = " << words[index][i] << endl;
-                     cout << "result: " << matrix[x][y + i] << endl;
+                     //cout << "index: " << index << " i: " << i << " x: " << x << " y: " << y << endl;
+                     //cout << "matrix[" << x << "][" << y + i << "] = " << words[index][i] << endl;
+                     //cout << "result: " << matrix[x][y + i] << endl;
                 }
             }
         }
@@ -135,11 +135,57 @@ int main()
                 {
                     
                     matrix[x+i][y+i] = words[index][i];
-                    cout << "index: " << index << " i: " << i << " x: " << x << " y: " << y << endl;
-                    cout << "matrix[" << x << "][" << y + i << "] = " << words[index][i] << endl;
-                    cout << "result: " << matrix[x][y + i] << endl;
+                    //cout << "index: " << index << " i: " << i << " x: " << x << " y: " << y << endl;
+                    //cout << "matrix[" << x << "][" << y + i << "] = " << words[index][i] << endl;
+                    //cout << "result: " << matrix[x][y + i] << endl;
                 }
             }
+        }
+    
+    else if (index % 4 == 3)// da qui diagonale inversaaaaaaaaaaaaaaaa
+        {
+            if (words[index].length() > columns && words[index].length() > rows)
+            {
+                cout << "word " << words[index] << " is too long" << endl;
+                continue;
+            }
+            else
+            {
+                contatore++;
+                int x = rand() % (rows - words[index].length());
+                int y = rand() % (columns - words[index].length());
+                //x==y;
+                while (matrix[x +1][y +1] != empty)
+                { 
+                
+                    x = rand() % (rows - words[index].length());
+                    y = rand() % (columns - words[index].length());
+              
+                }
+
+                for (int i = 0; i < words[index].length(); i++)
+                {   
+                    if (matrix[x - i][y + i] != empty)
+                    {
+                        x = rand() % (rows - words[index].length());
+                        y = rand() % (columns - words[index].length());
+                        i = 0;
+                    }
+                }
+
+                for (int i = 0; i < words[index].length(); i++)
+                {
+                    
+                    matrix[x+i][y+i] = words[index][i];
+                    //cout << "index: " << index << " i: " << i << " x: " << x << " y: " << y << endl;
+                    //cout << "matrix[" << x << "][" << y + i << "] = " << words[index][i] << endl;
+                    //cout << "result: " << matrix[x][y + i] << endl;
+                }
+            }
+        }
+        else
+        {
+
         }
     }
 
