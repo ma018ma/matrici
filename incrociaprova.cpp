@@ -1,30 +1,30 @@
 #include <iostream>
 #include <random>
 using namespace std;
- 
+
 int main()
 {
- 
+
     // int matrice1[5][5]; //te la crea vuota
     // //te la riempi con il for
     // int matrice[][] = { {1,2}, {3,4} };
     // int array1[2]={1,2};
     // int array2[2]={3,4};
     // int arraySpeciale[2]={array1,array2};
- 
+
     int righe = 9;
-    int colonne = 9;
- 
-    int matrice[righe][colonne];
- 
+    int colonne =9;
+
+    char matrice[righe][colonne];
+
     for (int i = 0; i < righe; i++)
     {
         for (int j = 0; j < colonne; j++)
         {
-            matrice[i][j] = rand()%10;
+            matrice[i][j] = 'o';
         }
     }
- 
+
     cout << "    ";
     for (int i = 0; i < colonne; i++)
     {
@@ -37,36 +37,39 @@ int main()
         cout << "-";
     }
     cout << endl;
- 
+
     for (int i = 0; i < righe; i++)
     {
- 
         cout << i << "|  ";
- 
         for (int j = 0; j < colonne; j++)
         {
             cout << matrice[i][j] << " ";
         }
         cout << endl;
     }
- 
+
     // ESERCIZIO
-    //input matrice, righe, colonne
-    //output 0 sulle diagonali
-    
-        for (int i =0;i <9; i++)
+    // input matrice, righe, colonne
+    // parola incastrate
+    char parola[] = "casetta";
+    int lungParola = sizeof(parola) / sizeof(parola[0]);
+    int riga = rand()%10;
+    int colonna = rand()%10;
+    int direzione = rand()%10;
+
+    for (int i = 0; i < 1; i++)
     {
-    matrice[4-i][i] = 0;
-    matrice[i][4-i] = 0;}
-    for (int i =0;i <righe; i++)
-    {
-        for (int j = 0; j < colonne; j++)
+        for (int j = 0; j < lungParola; j++)
         {
-            cout << matrice [i][j]<< endl;
+            for (int x = 0; x < lungParola -1; x++)
+            {
+                matrice[i][j] = parola[x];
+                j++;
+            }
         }
     }
     // STAMPA RISULTATO
- 
+
     cout << "    ";
     for (int i = 0; i < colonne; i++)
     {
@@ -79,24 +82,16 @@ int main()
         cout << "-";
     }
     cout << endl;
- 
+
     for (int i = 0; i < righe; i++)
     {
- 
+
         cout << i << "|  ";
- 
+
         for (int j = 0; j < colonne; j++)
         {
             cout << matrice[i][j] << " ";
         }
         cout << endl;
     }
-    
- 
-   
- 
- 
- 
-    
 }
- 
