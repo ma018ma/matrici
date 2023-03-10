@@ -24,7 +24,7 @@ int main()
 
     for (int index = 0; index < wordsLength; index++)
     {
-        if (index % 3 == 0)
+        if (index % 4 == 0)
         { // orizzontale
             if (words[index].length() > columns)
             {
@@ -62,7 +62,7 @@ int main()
                 }
             }
         }
-        else if (index % 3 == 1)
+        else if (index % 4 == 1)
         { // verticale
             if (words[index].length() > rows)
             {
@@ -100,7 +100,7 @@ int main()
                 }
             }
         }
-        else // da qui diagonaleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+        else if (index % 4 == 2)// da qui diagonaleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
         {
             if (words[index].length() > columns && words[index].length() > rows)
             {
